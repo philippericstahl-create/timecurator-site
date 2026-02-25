@@ -1,4 +1,4 @@
-<!-- v3-deploy-1772034301 -->
+<!-- v4-annotations-fix-1772150000 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,33 +209,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   z-index: 1;
 }
 /* REMOVED: hero-logo-overlay — RULE: NEVER put text on the watch dial */
-.hero-scroll {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-.hero-scroll span {
-  font-size: 8px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-}
-.hero-scroll .scroll-line {
-  width: 1px;
-  height: 30px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
-  animation: pulse-line 2s ease-in-out infinite;
-}
-@keyframes pulse-line {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
+/* hero-scroll styles moved to HERO SCROLL INDICATOR section below */
 .hero-label {
   position: absolute;
   bottom: 40px;
@@ -1842,9 +1816,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero-watch-label {
   position: absolute;
-  bottom: 80px;
+  bottom: 90px;
   right: 60px;
-  z-index: 3;
+  z-index: 4;
   text-align: right;
 }
 .hero-label-text {
@@ -1995,8 +1969,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     font-size: clamp(44px, 12vw, 72px);
   }
   .hero-watch-label {
-    bottom: 60px;
+    bottom: 80px;
     right: 24px;
+  }
+  .hero-logo {
+    bottom: 70px;
+    left: 24px;
+  }
+  .hero-logo-text {
+    font-size: 20px;
+    letter-spacing: 5px;
+  }
+  .hero-annotations {
+    display: none;
   }
   .intro-flex {
     flex-direction: column;
@@ -2017,9 +2002,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     font-size: 28px;
   }
   .tc-float-btn {
-    bottom: 20px;
+    bottom: 24px;
     right: 20px;
-    padding: 10px 16px;
+    padding: 10px 14px;
   }
   .tc-float-label {
     display: none;
@@ -2365,6 +2350,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 3;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  animation: annotationGroupReveal 1s ease 1.5s forwards;
+}
+@keyframes annotationGroupReveal {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 .hero-annotation {
   position: absolute;
@@ -2374,9 +2366,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   opacity: 0;
   animation: annotationReveal 0.8s ease forwards;
 }
-.hero-annotation:nth-child(1) { animation-delay: 1.5s; }
-.hero-annotation:nth-child(2) { animation-delay: 2.0s; }
-.hero-annotation:nth-child(3) { animation-delay: 2.5s; }
+.hero-annotation:nth-child(1) { animation-delay: 1.8s; }
+.hero-annotation:nth-child(2) { animation-delay: 2.2s; }
+.hero-annotation:nth-child(3) { animation-delay: 2.6s; }
 .hero-annotation:nth-child(4) { animation-delay: 3.0s; }
 
 @keyframes annotationReveal {
@@ -2441,14 +2433,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ─── HERO LOGO — Bottom-left corner ─── */
 .hero-logo {
   position: absolute;
-  bottom: 60px;
+  bottom: 80px;
   left: 40px;
   z-index: 4;
   opacity: 0;
   animation: fadeInUp 1s ease 0.5s forwards;
 }
 .hero-logo-text {
-  font-family: var(--font-heading);
+  font-family: var(--font);
   font-size: 28px;
   font-weight: 300;
   letter-spacing: 8px;
@@ -2457,7 +2449,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.1;
 }
 .hero-logo-sub {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -2708,52 +2700,48 @@ section.hero {
     <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/eZJsAJTLZqLCXgBx.jpeg" alt="Patek Philippe 1518" />
     <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/pxssHYIWljlNbQKH.jpeg" alt="Submariner Qaboos" />
   </div>
-  
-    <div class="hero-watch-label" id="heroWatchLabel">
-      <span class="hero-label-text">Daytona JPS Cherry 6264</span>
+
+  <!-- Dynamic annotations — updated per slide by JS -->
+  <div class="hero-annotations" id="heroAnnotations">
+    <div class="hero-annotation ann-top-right">
+      <span class="annotation-text" id="annTopRight">Ref. 6264 · c. 1969</span>
+      <span class="annotation-dot"></span>
+      <span class="annotation-line"></span>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+    <div class="hero-annotation ann-bottom-right">
+      <span class="annotation-text" id="annBottomRight">Exotic 'JPS Cherry' Dial</span>
+      <span class="annotation-dot"></span>
+      <span class="annotation-line"></span>
+    </div>
+    <div class="hero-annotation ann-bottom-left">
+      <span class="annotation-line"></span>
+      <span class="annotation-dot"></span>
+      <span class="annotation-text" id="annBottomLeft">~2,500 Produced</span>
+    </div>
+    <div class="hero-annotation ann-top-left">
+      <span class="annotation-line"></span>
+      <span class="annotation-dot"></span>
+      <span class="annotation-text" id="annTopLeft">Pump Pushers · Val. 727</span>
+    </div>
   </div>
 
-    <!-- Storytelling annotation lines -->
-    <div class="hero-annotations">
-      <div class="hero-annotation ann-top-right">
-        <span class="annotation-text">Ref. 6542 · c. 1955</span>
-        <span class="annotation-dot"></span>
-        <span class="annotation-line"></span>
-      </div>
-      <div class="hero-annotation ann-bottom-right">
-        <span class="annotation-text">Original Bakelite Bezel</span>
-        <span class="annotation-dot"></span>
-        <span class="annotation-line"></span>
-      </div>
-      <div class="hero-annotation ann-bottom-left" style="bottom:35%;left:5%">
-        <span class="annotation-line"></span>
-        <span class="annotation-dot"></span>
-        <span class="annotation-text">~650 Known Examples</span>
-      </div>
-      <div class="hero-annotation ann-top-left" style="top:30%;left:5%">
-        <span class="annotation-line"></span>
-        <span class="annotation-dot"></span>
-        <span class="annotation-text">Untouched · Unpolished</span>
-      </div>
-    </div>
-    
-    <!-- Logo in bottom-left corner -->
-    <div class="hero-logo">
-      <div class="hero-logo-text">Time Curator<sup style="font-size:14px">®</sup></div>
-      <div class="hero-logo-sub">Collecting Since 1988</div>
-      <div style="font-family:var(--font-body);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(196,164,105,0.7);margin-top:4px;text-shadow:0 1px 8px rgba(0,0,0,0.7)">by Rolex Passion Report</div>
-    </div>
-    
-    <!-- Scroll indicator -->
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="hero-scroll-line"></div>
-    </div>
+  <!-- Watch name label — bottom right -->
+  <div class="hero-watch-label" id="heroWatchLabel">
+    <span class="hero-label-text">Daytona JPS Cherry 6264</span>
+  </div>
+
+  <!-- Logo — bottom left -->
+  <div class="hero-logo">
+    <div class="hero-logo-text">Time Curator<sup style="font-size:14px">®</sup></div>
+    <div class="hero-logo-sub">Collecting Since 1988</div>
+    <div style="font-family:var(--font);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(196,164,105,0.7);margin-top:4px;text-shadow:0 1px 8px rgba(0,0,0,0.7)">by Rolex Passion Report</div>
+  </div>
+
+  <!-- Scroll indicator — bottom center -->
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
 
 </section>
 
@@ -4077,22 +4065,72 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
-// ─── Hero Slideshow ───
+// ─── Hero Slideshow with Per-Slide Annotations ───
 (function() {
   var slides = document.querySelectorAll('.hero-slide');
-  var labels = ['Daytona JPS Cherry 6264', 'Five Paul Newman Daytonas', 'Big Crown Submariner 6538', 'Red GMT-Master 6542', 'Rolex Space-Dweller', 'The Mega Oman Collection', 'Patek Philippe 1518', 'Submariner Qaboos'];
+  var labels = [
+    'Daytona JPS Cherry 6264',
+    'Five Paul Newman Daytonas',
+    'Big Crown Submariner 6538',
+    'Red GMT-Master 6542',
+    'Rolex Space-Dweller',
+    'The Mega Oman Collection',
+    'Patek Philippe 1518',
+    'Submariner Qaboos'
+  ];
+
+  // Per-slide annotation data: [topRight, bottomRight, bottomLeft, topLeft]
+  var annotations = [
+    // 0: Daytona JPS Cherry 6264
+    ['Ref. 6264 \u00b7 c. 1969', 'Exotic \u2018JPS Cherry\u2019 Dial', '~2,500 Produced', 'Pump Pushers \u00b7 Val. 727'],
+    // 1: Five Paul Newman Daytonas
+    ['Paul Newman Daytonas', 'The Rarest Exotic Dials', 'Five Grails \u00b7 One Collection', 'Art Deco Subdials'],
+    // 2: Big Crown Submariner 6538
+    ['Ref. 6538 \u00b7 c. 1956', 'Oversized 8mm Crown', 'The James Bond Submariner', 'Cal. 1030 Chronometer'],
+    // 3: Red GMT-Master 6542
+    ['Ref. 6542 \u00b7 c. 1955', 'Original Bakelite Bezel', '~650 Known Examples', 'Untouched \u00b7 Unpolished'],
+    // 4: Rolex Space-Dweller
+    ['Ref. 1016 \u00b7 c. 1963', '\u2018Space-Dweller\u2019 Dial', 'Japanese Market Only', 'Among the Rarest Rolex'],
+    // 5: The Mega Oman Collection
+    ['The Oman Collection', 'Royal Khanjar Dials', 'Sultan Qaboos Provenance', 'Museum-Grade Rarities'],
+    // 6: Patek Philippe 1518
+    ['Ref. 1518 \u00b7 c. 1945', 'Perpetual Calendar Chrono', 'Only 281 Produced', 'The First of Its Kind'],
+    // 7: Submariner Qaboos
+    ['Submariner \u00b7 Qaboos', 'Oman Khanjar Dial', 'Royal Diplomatic Gift', 'Extraordinary Provenance']
+  ];
+
   var labelEl = document.getElementById('heroWatchLabel');
   var labelText = labelEl ? labelEl.querySelector('.hero-label-text') : null;
+  var annContainer = document.getElementById('heroAnnotations');
+  var annTopRight = document.getElementById('annTopRight');
+  var annBottomRight = document.getElementById('annBottomRight');
+  var annBottomLeft = document.getElementById('annBottomLeft');
+  var annTopLeft = document.getElementById('annTopLeft');
   var current = 0;
   var total = slides.length;
-  
+
+  function updateAnnotations(idx) {
+    var data = annotations[idx];
+    // Fade out annotations
+    if (annContainer) annContainer.style.opacity = '0';
+    setTimeout(function() {
+      if (annTopRight) annTopRight.textContent = data[0];
+      if (annBottomRight) annBottomRight.textContent = data[1];
+      if (annBottomLeft) annBottomLeft.textContent = data[2];
+      if (annTopLeft) annTopLeft.textContent = data[3];
+      // Fade back in
+      if (annContainer) annContainer.style.opacity = '1';
+    }, 600);
+  }
+
   function nextSlide() {
     slides[current].classList.remove('active');
     current = (current + 1) % total;
     slides[current].classList.add('active');
     if (labelText) labelText.textContent = labels[current];
+    updateAnnotations(current);
   }
-  
+
   // Randomize starting image on each visit
   var startIdx = Math.floor(Math.random() * total);
   if (startIdx !== 0) {
@@ -4100,8 +4138,14 @@ document.addEventListener('DOMContentLoaded', function() {
     slides[startIdx].classList.add('active');
     current = startIdx;
     if (labelText) labelText.textContent = labels[startIdx];
+    // Set annotations immediately for initial slide (no fade)
+    var data = annotations[startIdx];
+    if (annTopRight) annTopRight.textContent = data[0];
+    if (annBottomRight) annBottomRight.textContent = data[1];
+    if (annBottomLeft) annBottomLeft.textContent = data[2];
+    if (annTopLeft) annTopLeft.textContent = data[3];
   }
-  
+
   setInterval(nextSlide, 5000);
 })();
 </script>
@@ -4137,16 +4181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
   
-  // Hero slideshow - smoother transitions
-  const slides = document.querySelectorAll('.hero-slide');
-  if (slides.length > 1) {
-    let current = 0;
-    setInterval(function() {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 8000);
-  }
+  // Hero slideshow controlled by main script above — no duplicate timer needed
 });
 </script>
 
