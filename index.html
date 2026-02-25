@@ -75,8 +75,8 @@
   --border-light: #4a4a52;     /* Lighter borders for hover */
   --green: #C5A55A;            /* Gold — luxury accent */
   --green-dim: #b5954a;
-  --red: #cc0000;
-  --red-bright: #ff1a1a;
+  --red: #8B2020;
+  --red-bright: #A52A2A;
   --gold: #C5A55A;             /* Gold accent */
   --white: #ffffff;
   --text-primary: #f0f0f2;     /* Near-white text */
@@ -379,7 +379,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ─── GMT Reserved Section ─── */
 .gmt-reserved {
-  padding: 80px 0;
+  padding: 120px 0;
   background: var(--bg-primary);
   border-top: 3px solid var(--red);
   border-bottom: 1px solid var(--border);
@@ -389,7 +389,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: var(--red);
+  background: #7B3F3F;
   color: var(--white);
   font-size: 10px;
   font-weight: 700;
@@ -476,7 +476,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: var(--gold);
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -486,7 +486,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.8;
 }
 
-/* ─── Heritage / Pioneer Projects ─── */
+/* ─── (removed) ─── */
 .heritage {
   padding: var(--section-pad);
   background: var(--bg-secondary);
@@ -1662,32 +1662,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ─── WhatsApp Floating Button ─── */
-.whatsapp-float {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 9000;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25D366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-decoration: none;
-}
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(37,211,102,0.5);
-  opacity: 1;
-}
-.whatsapp-float svg {
-  width: 28px;
-  height: 28px;
-  fill: #fff;
-}
+/* Old whatsapp float removed — replaced by TC branded button */
+
+
 
 /* ─── Sell Your Watch Section ─── */
 .sell-section {
@@ -1789,8 +1766,847 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .form-row { grid-template-columns: 1fr; }
   .modal-content { margin: 10px; }
   .watch-modal-info { padding: 20px; }
-  .whatsapp-float { bottom: 20px; right: 20px; width: 48px; height: 48px; }
-  .whatsapp-float svg { width: 24px; height: 24px; }
+  
+  
+}
+
+
+/* ─── Hero Slideshow ─── */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.35) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 60px;
+}
+.hero-text {
+  max-width: 560px;
+  padding-top: 60px;
+}
+.hero-title {
+  font-size: clamp(52px, 8vw, 100px);
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 0.92;
+  margin-bottom: 20px;
+}
+.hero-title sup {
+  font-size: 0.25em;
+  vertical-align: super;
+  font-weight: 300;
+}
+.hero-divider {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 20px;
+}
+.hero-since {
+  font-size: 11px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.hero-desc {
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  margin-bottom: 36px;
+}
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero-btn-primary {
+  display: inline-block;
+  padding: 14px 36px;
+  background: var(--gold);
+  color: var(--bg-primary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.hero-btn-primary:hover {
+  background: #d4b46a;
+  transform: translateY(-1px);
+}
+.hero-btn-secondary {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.8);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.hero-btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.hero-watch-label {
+  position: absolute;
+  bottom: 80px;
+  right: 60px;
+  z-index: 3;
+  text-align: right;
+}
+.hero-label-text {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  padding-right: 12px;
+}
+
+/* ─── Intro Flex ─── */
+.intro-flex {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.intro-left {
+  flex: 1;
+}
+.intro-right {
+  flex: 0 0 280px;
+}
+.intro-heading {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 200;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: 0.01em;
+}
+.intro-body {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+.intro-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px;
+  border-left: 1px solid var(--border);
+}
+.intro-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-number {
+  font-size: 36px;
+  font-weight: 200;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ─── For Sale Badge ─── */
+.fs-card {
+  position: relative;
+  overflow: hidden;
+}
+.fs-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  border-radius: 2px;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* ─── TC Branded Float Button ─── */
+.tc-float-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--bg-primary);
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.tc-float-btn:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(197,165,90,0.3);
+}
+.tc-float-btn:hover .tc-float-icon {
+  color: var(--bg-primary);
+  border-color: var(--bg-primary);
+}
+.tc-float-btn:hover .tc-float-label {
+  color: var(--bg-primary);
+}
+.tc-float-icon {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.tc-float-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: all 0.3s;
+}
+
+/* ─── Mobile Responsive Overrides ─── */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 24px;
+    align-items: flex-end;
+    padding-bottom: 100px;
+  }
+  .hero-text {
+    padding-top: 0;
+  }
+  .hero-title {
+    font-size: clamp(44px, 12vw, 72px);
+  }
+  .hero-watch-label {
+    bottom: 60px;
+    right: 24px;
+  }
+  .intro-flex {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .intro-right {
+    flex: 1;
+    width: 100%;
+  }
+  .intro-stats {
+    flex-direction: row;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding: 32px 0 0;
+    justify-content: space-between;
+  }
+  .stat-number {
+    font-size: 28px;
+  }
+  .tc-float-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 16px;
+  }
+  .tc-float-label {
+    display: none;
+  }
+}
+
+
+/* ─── How We Work Section ─── */
+.how-we-work {
+  padding: 120px 0;
+  background: var(--bg-secondary);
+}
+.hww-header {
+  max-width: 600px;
+  margin-bottom: 80px;
+}
+.hww-intro {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-top: 20px;
+}
+.hww-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 80px;
+}
+.hww-step {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.hww-step:last-child {
+  margin-bottom: 0;
+}
+.hww-step:last-child .hww-step-line {
+  display: none;
+}
+.hww-step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 48px;
+}
+.hww-step-num {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hww-step-line {
+  width: 1px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  margin-top: 8px;
+}
+.hww-step-content {
+  padding-top: 8px;
+}
+.hww-step-duration {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.hww-step-title {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.hww-step-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 560px;
+}
+.hww-bottom {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.hww-stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 48px;
+}
+.hww-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.hww-stat-num {
+  font-size: 48px;
+  font-weight: 200;
+  color: var(--gold);
+  line-height: 1;
+}
+.hww-stat-unit {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.hww-stat-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.hww-cta {
+  display: inline-block;
+  padding: 16px 48px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.hww-cta:hover {
+  background: var(--gold);
+  color: var(--bg-primary);
+}
+
+/* ─── Fix: Inquire button — gold tones ─── */
+.feat-cta-primary {
+  background: var(--gold) !important;
+  color: var(--bg-primary) !important;
+  border: none !important;
+}
+.feat-cta-primary:hover {
+  background: #d4b46a !important;
+}
+
+/* ─── Fix: Curator's Note — harmonized ─── */
+.feat-curator-note {
+  background: rgba(197,165,90,0.06) !important;
+  border-left: 2px solid var(--gold) !important;
+}
+.feat-curator-note .note-label {
+  color: var(--gold) !important;
+}
+
+/* ─── Fix: Reserved badge — vintage red ─── */
+.feat-badge,
+.feat-reserved-label {
+  background: #7B3F3F !important;
+  color: #f0f0f2 !important;
+}
+
+/* ─── Fix: Section label consistency ─── */
+.section-label {
+  color: var(--gold) !important;
+}
+
+/* ─── Mobile: How We Work ─── */
+@media (max-width: 768px) {
+  .how-we-work {
+    padding: 80px 0;
+  }
+  .hww-step {
+    gap: 20px;
+  }
+  .hww-stat-row {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .hww-stat-num {
+    font-size: 36px;
+  }
+}
+
+
+/* ─── ANIMATIONS & 3D DEPTH ─── */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Intersection Observer reveal classes */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* 3D Card depth */
+.for-sale-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+}
+.for-sale-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px var(--gold) !important;
+}
+
+/* Gallery items depth */
+.gallery-item {
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+.gallery-item:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4) !important;
+}
+
+/* GMT section depth */
+.gmt-reserved {
+  position: relative !important;
+}
+.gmt-reserved::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(139,32,32,0.05) 0%, transparent 50%, rgba(196,164,105,0.05) 100%);
+  pointer-events: none;
+}
+.gmt-main-img {
+  transition: transform 0.5s ease !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+.gmt-main-img:hover {
+  transform: scale(1.03) !important;
+}
+
+/* Hero text animation */
+.hero-overlay h1, .hero-overlay h2 {
+  animation: slideInLeft 1.2s ease forwards !important;
+}
+.hero-overlay p {
+  animation: fadeInUp 1s ease 0.3s forwards !important;
+  opacity: 0;
+}
+
+/* Section titles slide in */
+.section-title {
+  position: relative;
+}
+
+/* Shimmer effect on gold elements */
+.hww-step-num, .hww-step-duration {
+  background: linear-gradient(90deg, var(--gold) 0%, #D4AF37 50%, var(--gold) 100%) !important;
+  background-size: 200% auto;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Navigation depth */
+.main-nav {
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* Floating message button depth */
+.dm-btn {
+  box-shadow: 0 4px 24px rgba(196,164,105,0.3) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.dm-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 8px 32px rgba(196,164,105,0.5) !important;
+}
+
+/* How We Work timeline depth */
+.hww-step-marker {
+  position: relative;
+}
+.hww-step-num {
+  box-shadow: 0 4px 16px rgba(196,164,105,0.3) !important;
+}
+
+/* For Sale section title animation */
+.for-sale .section-title {
+  font-size: 48px !important;
+}
+
+
+.hero-slide {
+  position: absolute !important;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out !important;
+}
+.hero-slide.active {
+  opacity: 1 !important;
+}
+.hero-slideshow {
+  position: relative !important;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.fs-badge {
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 3px !important;
+  padding: 8px 16px !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+
+/* ─── HERO ANNOTATION LINES ─── */
+.hero-annotations {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.hero-annotation {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  animation: annotationReveal 0.8s ease forwards;
+}
+.hero-annotation:nth-child(1) { animation-delay: 1.5s; }
+.hero-annotation:nth-child(2) { animation-delay: 2.0s; }
+.hero-annotation:nth-child(3) { animation-delay: 2.5s; }
+.hero-annotation:nth-child(4) { animation-delay: 3.0s; }
+
+@keyframes annotationReveal {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.annotation-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.annotation-line-v {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, var(--gold));
+}
+.annotation-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.annotation-text {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+  padding: 4px 12px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+}
+
+/* Annotation positions for different corners */
+.ann-bottom-right {
+  bottom: 25%;
+  right: 5%;
+  flex-direction: row-reverse;
+}
+.ann-bottom-right .annotation-line {
+  background: linear-gradient(270deg, transparent, var(--gold));
+}
+.ann-top-right {
+  top: 20%;
+  right: 5%;
+  flex-direction: row-reverse;
+}
+.ann-top-right .annotation-line {
+  background: linear-gradient(270deg, transparent, var(--gold));
+}
+.ann-bottom-left {
+  bottom: 20%;
+  left: 5%;
+}
+.ann-top-left {
+  top: 25%;
+  left: 5%;
+}
+
+/* ─── HERO LOGO — Bottom-left corner ─── */
+.hero-logo {
+  position: absolute;
+  bottom: 60px;
+  left: 40px;
+  z-index: 4;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.5s forwards;
+}
+.hero-logo-text {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: var(--white);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+  line-height: 1.1;
+}
+.hero-logo-sub {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 6px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+}
+
+/* ─── HERO SCROLL INDICATOR ─── */
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease 3s forwards;
+}
+.hero-scroll span {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+  margin: 8px auto 0;
+  animation: scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; height: 30px; }
+  50% { opacity: 0.8; height: 40px; }
+}
+
+/* ─── HERO OVERLAY — darken for text readability ─── */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.1) 40%,
+    rgba(0,0,0,0.3) 70%,
+    rgba(0,0,0,0.6) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* ─── HERO CINEMATIC ─── */
+.hero {
+  position: relative !important;
+  width: 100% !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+.hero-slideshow {
+  position: absolute !important;
+  top: 0; left: 0; right: 0; bottom: 0 !important;
+  overflow: hidden !important;
+}
+.hero-slide {
+  position: absolute !important;
+  top: 0; left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: 0 !important;
+  filter: brightness(0.65) contrast(1.15) !important;
+  transition: opacity 2s ease-in-out !important;
+  transform: scale(1);
+}
+.hero-slide.active {
+  opacity: 1 !important;
+  animation: kenBurns 8s ease-in-out forwards !important;
+}
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* Darker gradient overlay for mood */
+.hero::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0; left: 0; right: 0; bottom: 0 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.15) 30%,
+    rgba(0,0,0,0.15) 60%,
+    rgba(0,0,0,0.55) 100%
+  ) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+
+/* ─── TIGHTER SECTION SPACING ─── */
+section {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+section.hero {
+  padding: 0 !important;
+}
+.gmt-reserved {
+  padding: 80px 0 !important;
+}
+/* Remove excessive gaps */
+.section-gap {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 </style>
@@ -1816,7 +2632,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <!-- ═══ NAVIGATION ═══ -->
 <nav class="main-nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">TIME CURATOR<sup>®</sup><small>YOUR COLLECTOR'S OFFICE</small></a>
+    <a href="#" class="nav-logo">TIME CURATOR<sup>®</sup><small>YOUR COLLECTOR'S OFFICE<br><span style="font-size:7px;letter-spacing:2px;opacity:0.6">by ROLEX PASSION REPORT</span></small></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -1851,7 +2667,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <nav class="mobile-menu-nav">
       <a href="#for-sale" class="mobile-menu-item">
         <div class="mobile-menu-thumb"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/oHdjAFzGVOyqUAgf.jpeg" alt="" /></div>
-        <span class="mobile-menu-item-text" style="color:#C8102E;">FOR SALE</span>
+        <span class="mobile-menu-item-text" style="color:#8B2500;">FOR SALE</span>
         <svg class="mobile-menu-item-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
       </a>
       <a href="#journal" class="mobile-menu-item">
@@ -1881,12 +2697,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </a>
       <a href="#rpr" class="mobile-menu-item">
         <div class="mobile-menu-thumb"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/XiuIHGCuRpNcfgNm.jpeg" alt="" /></div>
-        <span class="mobile-menu-item-text" style="color:#C8102E;">RPR*</span>
+        <span class="mobile-menu-item-text" style="color:#8B2500;">RPR*</span>
         <svg class="mobile-menu-item-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
       </a>
       <a href="#rpm" class="mobile-menu-item">
         <div class="mobile-menu-thumb"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/VKHEABVKMNgwXxeE.jpeg" alt="" /></div>
-        <span class="mobile-menu-item-text" style="color:#C8102E;">RPM*</span>
+        <span class="mobile-menu-item-text" style="color:#8B2500;">RPM*</span>
         <svg class="mobile-menu-item-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
       </a>
       <a href="#contact" class="mobile-menu-item">
@@ -1912,34 +2728,86 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/tmeuLenuBKBBhXkZ.jpeg">
-    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/LCZuAnxdUVFprcOM.mp4" type="video/mp4" />
-    <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/SmclTBgGpAIaoPnZ.mov" type="video/quicktime" />
-  </video>
-  <div class="hero-logo-overlay">
-    <h1>Time Curator<sup style="font-size:0.35em;vertical-align:super;">®</sup></h1>
-    <div class="hero-sub">Collecting Since 1988</div>
-    <div class="hero-tagline">Vintage Rolex & Patek Philippe · Advisory & Brokerage</div>
+  <div class="hero-slideshow">
+    <img class="hero-slide active" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/oHdjAFzGVOyqUAgf.jpeg" alt="Daytona JPS Cherry 6264" />
+    <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/DSsznGJxhWIurlxh.jpeg" alt="Five Paul Newman Daytonas" />
+    <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/qbptzSkNGfquSYoW.jpeg" alt="Big Crown Submariner 6538" />
+    <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/hPCbgznZwLbvATUL.jpeg" alt="Red GMT-Master 6542" />
+    <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/EUJuCEkKtLQMJfmS.jpeg" alt="Rolex Space-Dweller" />
+    <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/QCgFIOBVANTxLzCW.jpeg" alt="The Mega Oman Collection" />
+    <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/eZJsAJTLZqLCXgBx.jpeg" alt="Patek Philippe 1518" />
+    <img class="hero-slide" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/pxssHYIWljlNbQKH.jpeg" alt="Submariner Qaboos" />
+  </div>
+  
+    <div class="hero-watch-label" id="heroWatchLabel">
+      <span class="hero-label-text">Daytona JPS Cherry 6264</span>
+    </div>
   </div>
   <div class="hero-scroll">
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
+
+    <!-- Storytelling annotation lines -->
+    <div class="hero-annotations">
+      <div class="hero-annotation ann-top-right">
+        <span class="annotation-text">Ref. 6542 · c. 1955</span>
+        <span class="annotation-dot"></span>
+        <span class="annotation-line"></span>
+      </div>
+      <div class="hero-annotation ann-bottom-right">
+        <span class="annotation-text">Original Bakelite Bezel</span>
+        <span class="annotation-dot"></span>
+        <span class="annotation-line"></span>
+      </div>
+      <div class="hero-annotation ann-bottom-left" style="bottom:35%;left:5%">
+        <span class="annotation-line"></span>
+        <span class="annotation-dot"></span>
+        <span class="annotation-text">~650 Known Examples</span>
+      </div>
+      <div class="hero-annotation ann-top-left" style="top:30%;left:5%">
+        <span class="annotation-line"></span>
+        <span class="annotation-dot"></span>
+        <span class="annotation-text">Untouched · Unpolished</span>
+      </div>
+    </div>
+    
+    <!-- Logo in bottom-left corner -->
+    <div class="hero-logo">
+      <div class="hero-logo-text">Time Curator<sup style="font-size:14px">®</sup></div>
+      <div class="hero-logo-sub">Collecting Since 1988</div>
+      <div style="font-family:var(--font-body);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(196,164,105,0.7);margin-top:4px;text-shadow:0 1px 8px rgba(0,0,0,0.7)">by Rolex Passion Report</div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+
 </section>
 
 <!-- ═══ INTRO ═══ -->
 <section class="intro" id="intro">
-  <div class="container">
-    <p class="intro-label">YOUR COLLECTOR'S OFFICE</p>
-    <h1>TIME CURATOR<sup>®</sup></h1>
-    <p>Vintage Rolex &amp; Patek Philippe advisory and brokerage. Since 1988.</p>
-    <div class="intro-buttons">
-      <a href="#for-sale" class="btn-primary">⬇ VIEW COLLECTION</a>
-      <a href="https://instagram.com/time.curators" target="_blank" class="btn-secondary">◎ @TIME.CURATORS</a>
+  <div class="container intro-flex">
+    <div class="intro-left">
+      <p class="intro-label">YOUR COLLECTOR'S OFFICE<br><span style="font-size:7px;letter-spacing:2px;opacity:0.6">by ROLEX PASSION REPORT</span></p>
+      <h2 class="intro-heading">I find the watches<br>that matter most.</h2>
+      <p class="intro-body">Since 1988, I have been advising serious collectors on the world's rarest vintage Rolex and Patek Philippe timepieces. Authentication, valuation, and brokerage — with the discretion and expertise that only decades of passion can deliver.</p>
+      <div class="intro-buttons">
+        <a href="#for-sale" class="btn-primary">Explore Grails</a>
+        <a href="https://instagram.com/time.curators" target="_blank" class="btn-secondary">@TIME.CURATORS</a>
+      </div>
+    </div>
+    <div class="intro-right">
+      <div class="intro-stats">
+        <div class="intro-stat"><span class="stat-number">37+</span><span class="stat-label">Years of Expertise</span></div>
+        <div class="intro-stat"><span class="stat-number">500+</span><span class="stat-label">Grails Sourced</span></div>
+        <div class="intro-stat"><span class="stat-number">40+</span><span class="stat-label">Countries Served</span></div>
+      </div>
     </div>
   </div>
 </section>
-
 <!-- ═══ NEWSLETTER BAR ═══ -->
 <section class="newsletter-bar" id="newsletter">
   <div class="container">
@@ -1996,85 +2864,89 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
         <p style="margin-top:24px;font-size:13px;color:#666;">More watches available on request. Commission from 5%.</p>
         <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="mailto:info@timecurator.co" class="btn-primary" style="background:#cc0000;">INQUIRE ABOUT THIS PIECE</a>
+          <a href="mailto:info@timecurator.co" class="btn-primary" style="background:#8B2020;">INQUIRE ABOUT THIS PIECE</a>
           <a href="mailto:info@timecurator.co" class="btn-secondary">INFO@TIMECURATOR.CO</a>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- ═══ HERITAGE / PIONEER PROJECTS ═══ -->
-<section class="heritage" id="heritage">
+
+<!-- ═══ HOW WE WORK ═══ -->
+<section class="how-we-work" id="how-we-work">
   <div class="container">
-    <p class="section-label">HERITAGE</p>
-    <h2 class="section-title">Pioneer Projects</h2>
-    <p class="section-subtitle">Three limited editions that made history. Born from passion, sold at Christie's, and now among the most coveted collector's pieces in the world.</p>
-    <div class="heritage-grid">
-      <a href="https://rolexpassionreport.com" target="_blank" class="heritage-card">
-        <img class="heritage-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/krrrcxKvHestCSUX.jpg" alt="Single Red DeepSea" />
-        <div class="heritage-card-info">
-          <div class="heritage-year">2008</div>
-          <h3>Single Red DeepSea</h3>
-          <p class="heritage-edition">JACQUES PICCARD EDITION</p>
-          <p class="heritage-detail">86 PIECES · SOLD OUT · CHRISTIE'S</p>
+    <div class="hww-header">
+      <div class="section-line"></div>
+      <p class="section-label">THE TIME CURATOR METHOD</p>
+      <h2 class="section-title">How We Sell<br>Your Watch</h2>
+      <p class="hww-intro">Every significant timepiece deserves a strategy, not just a listing. Here is how we position your watch to reach the right collector at the right price.</p>
+    </div>
+
+    <div class="hww-timeline">
+      <div class="hww-step">
+        <div class="hww-step-marker">
+          <span class="hww-step-num">01</span>
+          <div class="hww-step-line"></div>
         </div>
-      </a>
-      <a href="https://rolexpassionreport.com" target="_blank" class="heritage-card">
-        <img class="heritage-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/EMcrlBPEKwTSAmqv.jpg" alt="Hillary Tenzing Explorer" />
-        <div class="heritage-card-info">
-          <div class="heritage-year">2012</div>
-          <h3>Hillary Tenzing Explorer</h3>
-          <p class="heritage-edition">HTE — EVEREST EDITION</p>
-          <p class="heritage-detail">88 SETS · CHRISTIE'S $100K+ · CHARITY</p>
+        <div class="hww-step-content">
+          <div class="hww-step-duration">WEEK 1</div>
+          <h3 class="hww-step-title">Valuation &amp; Strategy</h3>
+          <p class="hww-step-desc">We study your watch in detail. Provenance, condition, market position. Using our RPR* database and 37 years of market knowledge, we calculate the right price — not an inflated promise, not a lowball. The real number.</p>
         </div>
-      </a>
-      <a href="https://rolexpassionreport.com" target="_blank" class="heritage-card">
-        <img class="heritage-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/HAfbDZfeRjNJwGVS.webp" alt="Heritage Submariner" />
-        <div class="heritage-card-info">
-          <div class="heritage-year">2013</div>
-          <h3>Heritage Submariner</h3>
-          <p class="heritage-edition">HS/01</p>
-          <p class="heritage-detail">60 PIECES · BIG CROWN TRIBUTE</p>
+      </div>
+
+      <div class="hww-step">
+        <div class="hww-step-marker">
+          <span class="hww-step-num">02</span>
+          <div class="hww-step-line"></div>
         </div>
-      </a>
+        <div class="hww-step-content">
+          <div class="hww-step-duration">WEEKS 2 — 3</div>
+          <h3 class="hww-step-title">Private Placement</h3>
+          <p class="hww-step-desc">Your watch is presented privately to our inner circle — serious collectors worldwide who trust our curation. No public listings. No auction pressure. Discreet, personal, and positioned with the care it deserves. This is where the best deals happen.</p>
+        </div>
+      </div>
+
+      <div class="hww-step">
+        <div class="hww-step-marker">
+          <span class="hww-step-num">03</span>
+          <div class="hww-step-line"></div>
+        </div>
+        <div class="hww-step-content">
+          <div class="hww-step-duration">WEEKS 3 — 4</div>
+          <h3 class="hww-step-title">Network &amp; Online</h3>
+          <p class="hww-step-desc">If needed, we expand to our trusted dealer network — 21 dealers across 40+ countries — and our online channels. Professional photography, compelling storytelling, strategic timing. Some collectors need time. Some watches need to be seen in the right publication first.</p>
+        </div>
+      </div>
+
+      <div class="hww-step">
+        <div class="hww-step-marker">
+          <span class="hww-step-num">04</span>
+          <div class="hww-step-line"></div>
+        </div>
+        <div class="hww-step-content">
+          <div class="hww-step-duration">RESULT</div>
+          <h3 class="hww-step-title">Transparent Outcome</h3>
+          <p class="hww-step-desc">You know exactly what happened, who was interested, and why. We share the result openly. Commission from 5%. No hidden fees. No surprises. Just honest business built on decades of trust.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hww-bottom">
+      <div class="hww-stat-row">
+        <div class="hww-stat"><span class="hww-stat-num">4</span><span class="hww-stat-unit">weeks</span><span class="hww-stat-label">Average placement cycle</span></div>
+        <div class="hww-stat"><span class="hww-stat-num">5</span><span class="hww-stat-unit">%</span><span class="hww-stat-label">Commission — transparent</span></div>
+        <div class="hww-stat"><span class="hww-stat-num">21</span><span class="hww-stat-unit">dealers</span><span class="hww-stat-label">Trusted global network</span></div>
+      </div>
+      <a href="#contact" class="hww-cta">Start the Conversation</a>
     </div>
   </div>
 </section>
 
+
+
 <!-- ═══ CONNECTED TO LEGENDS ═══ -->
-<section class="legends" id="legends">
-  <div class="container">
-    <p class="section-label">CONNECTED TO LEGENDS</p>
-    <h2 class="section-title">Icons We've Met</h2>
-    <div class="legends-grid">
-      <div class="legend-card">
-        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/MoaYcNXxubGxBiji.jpeg" alt="Sir Jackie Stewart" />
-        <p class="legend-name">Sir Jackie Stewart</p>
-        <p class="legend-title">3× F1 World Champion<br>Goodwood Revival</p>
-      </div>
-      <div class="legend-card">
-        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/WnTYSTKjIQydZeko.jpg" alt="Reinhold Messner" />
-        <p class="legend-name">Reinhold Messner</p>
-        <p class="legend-title">First to Summit Everest Solo<br>Mountain Museum, Bolzano</p>
-      </div>
-      <div class="legend-card">
-        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/baVudEWIspAzUFHU.jpg" alt="Jean-Claude Killy" />
-        <p class="legend-name">Jean-Claude Killy</p>
-        <p class="legend-title">3× Olympic Gold · Skiing<br>With Philipp</p>
-      </div>
-      <div class="legend-card">
-        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/tzRigrHCQweuEriu.jpg" alt="Bertrand Piccard" />
-        <p class="legend-name">Bertrand Piccard</p>
-        <p class="legend-title">Explorer · Solar Impulse<br>DeepSea Presentation</p>
-      </div>
-      <div class="legend-card">
-        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/cHaflFALjWxhjXTD.jpg" alt="Peter Hillary & Jamling Tenzing" />
-        <p class="legend-name">Peter Hillary &amp; Jamling Tenzing</p>
-        <p class="legend-title">HTE Project · Everest Legacy<br>With Philipp Stahl</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ═══ RPM* TRUSTED DEALERS ═══ -->
 <section class="rpm-dealers" id="rpm">
@@ -2185,30 +3057,37 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Paul Newman 6241" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/zrOfaDgtStntcjyO.jpeg" alt="Paul Newman 6241" />
+        <span class="fs-badge" style="background:#E8E0D0;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Paul Newman 6241</p><p class="fs-card-tag">Panda Dial</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Big Crown 6538" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/qbptzSkNGfquSYoW.jpeg" alt="Big Crown 6538" />
+        <span class="fs-badge" style="background:#C5A55A;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Big Crown 6538</p><p class="fs-card-tag">Gilt Dial · 1956</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Stelline Moonphase 6062" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/JWDPBLsfIfvlegus.jpeg" alt="Stelline Moonphase 6062" />
+        <span class="fs-badge" style="background:#4A6741;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Stelline Moonphase 6062</p><p class="fs-card-tag">1950s</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Patek Philippe Perpetual Calendar" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/RSpRWytyXJfeZJrO.jpeg" alt="Patek Philippe" />
+        <span class="fs-badge" style="background:#C5A55A;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Patek Philippe</p><p class="fs-card-tag">Perpetual Calendar</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Space-Dweller" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/EUJuCEkKtLQMJfmS.jpeg" alt="Space-Dweller" />
+        <span class="fs-badge" style="background:#8B2500;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Space-Dweller</p><p class="fs-card-tag">Ultra Rare</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: MilSub 5517" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/dyLbNksYezFshzel.jpeg" alt="MilSub 5517" />
+        <span class="fs-badge" style="background:#556B2F;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">MilSub 5517</p><p class="fs-card-tag">Military T-Dial</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Double Red Sea-Dweller" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/yCXQBFqHzohDuiEG.jpeg" alt="Double Red Sea-Dweller" />
+        <span class="fs-badge" style="background:#8B2500;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Double Red Sea-Dweller</p><p class="fs-card-tag">Tropical Dial</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Submariner Qaboos" class="fs-card">
@@ -2217,14 +3096,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Daytona Big Red 6263" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/KQSsWaaitkRHnjzd.jpeg" alt="Daytona Big Red 6263" />
+        <span class="fs-badge" style="background:#8B2500;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Daytona Big Red 6263</p><p class="fs-card-tag">On Wrist</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Daytona Rainbow" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/CnkenGmDXEdEhhVb.jpeg" alt="Daytona Rainbow" />
+        <span class="fs-badge" style="background:#C5A55A;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Daytona Rainbow</p><p class="fs-card-tag">Gold</p></div>
       </a>
       <a href="mailto:info@timecurator.co?subject=Inquiry: Milgauss 6541" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/PAEUTHLIfOaQPVjJ.jpeg" alt="Milgauss 6541" />
+        <span class="fs-badge" style="background:#556B2F;">FOR SALE</span>
         <div class="fs-card-info"><p class="fs-card-name">Milgauss 6541</p><p class="fs-card-tag">Honeycomb Dial</p></div>
       </a>
     </div>
@@ -2282,17 +3164,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   <div class="container">
     <p class="section-label">GALLERY</p>
     <h2 class="section-title">The Collection</h2>
-    <p class="section-subtitle">Every watch tells a story. These are some of the pieces that have passed through our hands — each one carefully selected, each one unforgettable.</p>
+    <p class="section-subtitle">Every watch tells a story. These are some of the pieces that have passed through my hands — each one carefully selected, each one unforgettable.</p>
 
     <div class="gallery-category">
       <h3 class="gallery-cat-title">COSMOGRAPH DAYTONA</h3>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/oHdjAFzGVOyqUAgf.jpeg" alt="JPS Cherry 6264" /><span class="gallery-item-label">JPS Cherry 6264 · The Holy Grail</span></div>
+        
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/DSsznGJxhWIurlxh.jpeg" alt="Five Paul Newman Daytonas" /><span class="gallery-item-label">Five Paul Newman Daytonas</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/lhlTwdcKLXdMvGRj.jpeg" alt="Two Paul Newmans" /><span class="gallery-item-label">Two Paul Newmans · Green Marble</span></div>
-        <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/zrOfaDgtStntcjyO.jpeg" alt="Paul Newman Panda" /><span class="gallery-item-label">Paul Newman Panda · On Wrist</span></div>
-        <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/KQSsWaaitkRHnjzd.jpeg" alt="Big Red Daytona" /><span class="gallery-item-label">Big Red Daytona · On Wrist</span></div>
-        <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/CnkenGmDXEdEhhVb.jpeg" alt="Daytona Rainbow" /><span class="gallery-item-label">Daytona Rainbow · Gold</span></div>
+        
+        
+        
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/FenWAvCzAtaFjWTA.jpeg" alt="Stella Red" /><span class="gallery-item-label">Stella Red · Gold Daytona 6263</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/wlTXVWzoxGCqcBeZ.jpeg" alt="Qaboos Daytona" /><span class="gallery-item-label">Qaboos Daytona · With Papers</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/VxOzuzADMVRLFNvu.jpeg" alt="Three Daytonas" /><span class="gallery-item-label">Three Cosmograph Daytonas</span></div>
@@ -2305,7 +3187,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/qbptzSkNGfquSYoW.jpeg" alt="Big Crown 6538" /><span class="gallery-item-label">Big Crown 6538 · Gilt Dial · Sunlight</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/XiuIHGCuRpNcfgNm.jpeg" alt="Big Crown 1956" /><span class="gallery-item-label">Big Crown Submariner · 1956</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/dyLbNksYezFshzel.jpeg" alt="MilSub 5517" /><span class="gallery-item-label">MilSub 5517 · Military T-Dial</span></div>
-        <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/pxssHYIWljlNbQKH.jpeg" alt="Qaboos Submariner" /><span class="gallery-item-label">Qaboos Submariner · Arabic Script</span></div>
+        
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/VKHEABVKMNgwXxeE.jpeg" alt="Military 5513" /><span class="gallery-item-label">Military Submariner 5513</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/zHylNVXEbzswXlGO.jpeg" alt="Two Subs" /><span class="gallery-item-label">Two Subs 5512 &amp; 6538 · Gilt</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/cihTVEKMvbvLmcwi.jpeg" alt="Explorer Dial" /><span class="gallery-item-label">Sub 6538 · Explorer Dial</span></div>
@@ -2340,9 +3222,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="gallery-category">
       <h3 class="gallery-cat-title">RARE &amp; EXCEPTIONAL</h3>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/EUJuCEkKtLQMJfmS.jpeg" alt="Space-Dweller" /><span class="gallery-item-label">Rolex Space-Dweller · Ultra Rare</span></div>
+        
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/JWDPBLsfIfvlegus.jpeg" alt="Moonphase 6062" /><span class="gallery-item-label">Triple Calendar Moonphase 6062</span></div>
-        <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/PAEUTHLIfOaQPVjJ.jpeg" alt="Milgauss 6541" /><span class="gallery-item-label">Milgauss 6541 · Honeycomb Dial</span></div>
+        
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/eZJsAJTLZqLCXgBx.jpeg" alt="Patek 1518" /><span class="gallery-item-label">Patek Philippe 1518 · Gold</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/RSpRWytyXJfeZJrO.jpeg" alt="Patek Perpetual" /><span class="gallery-item-label">Patek Philippe · Perpetual Calendar</span></div>
         <div class="gallery-item"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/AykDVAqylSkZKzqN.jpeg" alt="Tudor Monte Carlo" /><span class="gallery-item-label">Tudor Monte Carlo Chronograph</span></div>
@@ -2487,7 +3369,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <a href="https://instagram.com/time.curators" target="_blank" class="eco-card">
         <img class="eco-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/ndmeafVhBJOHoHzx.jpeg" alt="Time Curator" />
         <div class="eco-card-info">
-          <p class="eco-card-brand">YOUR COLLECTOR'S OFFICE</p>
+          <p class="eco-card-brand">YOUR COLLECTOR'S OFFICE<br><span style="font-size:7px;letter-spacing:2px;opacity:0.6">by ROLEX PASSION REPORT</span></p>
           <h3>Time Curator® <span class="eco-new-badge">NEW</span></h3>
           <p>Personal advisory and brokerage. Rolex &amp; Patek Philippe. One conversation is all it takes.</p>
           <div class="eco-card-links">
@@ -2613,12 +3495,46 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 </section>
 
 <!-- ═══ FOOTER ═══ -->
+<section class="legends" id="legends">
+  <div class="container">
+    <p class="section-label">CONNECTED TO LEGENDS</p>
+    <h2 class="section-title">Icons We've Met</h2>
+    <div class="legends-grid">
+      <div class="legend-card">
+        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/MoaYcNXxubGxBiji.jpeg" alt="Sir Jackie Stewart" />
+        <p class="legend-name">Sir Jackie Stewart</p>
+        <p class="legend-title">3× F1 World Champion<br>Goodwood Revival</p>
+      </div>
+      <div class="legend-card">
+        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/WnTYSTKjIQydZeko.jpg" alt="Reinhold Messner" />
+        <p class="legend-name">Reinhold Messner</p>
+        <p class="legend-title">First to Summit Everest Solo<br>Mountain Museum, Bolzano</p>
+      </div>
+      <div class="legend-card">
+        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/baVudEWIspAzUFHU.jpg" alt="Jean-Claude Killy" />
+        <p class="legend-name">Jean-Claude Killy</p>
+        <p class="legend-title">3× Olympic Gold · Skiing<br>With Philipp</p>
+      </div>
+      <div class="legend-card">
+        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/tzRigrHCQweuEriu.jpg" alt="Bertrand Piccard" />
+        <p class="legend-name">Bertrand Piccard</p>
+        <p class="legend-title">Explorer · Solar Impulse<br>DeepSea Presentation</p>
+      </div>
+      <div class="legend-card">
+        <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/cHaflFALjWxhjXTD.jpg" alt="Peter Hillary & Jamling Tenzing" />
+        <p class="legend-name">Peter Hillary &amp; Jamling Tenzing</p>
+        <p class="legend-title">HTE Project · Everest Legacy<br>With Philipp Stahl</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
         <h4>TIME CURATOR®</h4>
-        <small>YOUR COLLECTOR'S OFFICE</small>
+        <small>YOUR COLLECTOR'S OFFICE<br><span style="font-size:7px;letter-spacing:2px;opacity:0.6">by ROLEX PASSION REPORT</span></small>
         <p>Connecting collectors of vintage Rolex and Patek Philippe since 1988. Advisory, brokerage, and a global community built on trust and shared passion.</p>
         <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
           <a href="mailto:info@timecurator.co" style="font-size:12px;color:#C5A55A;">info@timecurator.co</a>
@@ -3184,9 +4100,85 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <!-- ═══ DIRECT MESSAGE FLOATING BUTTON ═══ -->
-<a href="https://ig.me/m/time.curators" target="_blank" class="whatsapp-float" title="Message us on Instagram" aria-label="Direct Message">
-  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+<a href="https://ig.me/m/time.curators" target="_blank" class="tc-float-btn" title="Message Time Curator" aria-label="Direct Message">
+  <span class="tc-float-icon">TC</span>
+  <span class="tc-float-label">Message Us</span>
 </a>
+
+
+<script>
+// ─── Hero Slideshow ───
+(function() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var labels = ['Daytona JPS Cherry 6264', 'Five Paul Newman Daytonas', 'Big Crown Submariner 6538', 'Red GMT-Master 6542', 'Rolex Space-Dweller', 'The Mega Oman Collection', 'Patek Philippe 1518', 'Submariner Qaboos'];
+  var labelEl = document.getElementById('heroWatchLabel');
+  var labelText = labelEl ? labelEl.querySelector('.hero-label-text') : null;
+  var current = 0;
+  var total = slides.length;
+  
+  function nextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % total;
+    slides[current].classList.add('active');
+    if (labelText) labelText.textContent = labels[current];
+  }
+  
+  // Randomize starting image on each visit
+  var startIdx = Math.floor(Math.random() * total);
+  if (startIdx !== 0) {
+    slides[0].classList.remove('active');
+    slides[startIdx].classList.add('active');
+    current = startIdx;
+    if (labelText) labelText.textContent = labels[startIdx];
+  }
+  
+  setInterval(nextSlide, 5000);
+})();
+</script>
+
+
+<script>
+// Intersection Observer for reveal animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Add reveal classes to sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach(function(section) {
+    const titles = section.querySelectorAll('.section-title, .section-label');
+    titles.forEach(function(el) { el.classList.add('reveal-left'); });
+    
+    const cards = section.querySelectorAll('.for-sale-card, .gallery-item, .dealer-card');
+    cards.forEach(function(el, i) { 
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i * 0.1) + 's';
+    });
+  });
+  
+  // Create observer
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  // Observe all reveal elements
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) {
+    observer.observe(el);
+  });
+  
+  // Hero slideshow - smoother transitions
+  const slides = document.querySelectorAll('.hero-slide');
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(function() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 8000);
+  }
+});
+</script>
 
 </body>
 </html>
