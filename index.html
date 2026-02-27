@@ -1,4 +1,4 @@
-<!-- v4-annotations-fix-1772150000 -->
+<!-- v5-gallery-redesign-1772200000 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,25 +68,25 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg-primary: #1a1a1f;       /* Dark charcoal — main bg */
-  --bg-secondary: #222228;     /* Slightly lighter — alternating sections */
-  --bg-card: #2a2a30;          /* Card backgrounds */
-  --bg-elevated: #32323a;      /* Elevated elements */
-  --border: #3a3a42;           /* Borders — more visible */
-  --border-light: #4a4a52;     /* Lighter borders for hover */
+  --bg-primary: #0f0e0c;       /* Warm charcoal — gallery wall */
+  --bg-secondary: #161412;     /* Warm dark — alternating sections */
+  --bg-card: #1c1a16;          /* Warm card backgrounds */
+  --bg-elevated: #242118;      /* Warm elevated elements */
+  --border: #2e2a22;           /* Warm borders */
+  --border-light: #3d3628;     /* Warm lighter borders for hover */
   --green: #C5A55A;            /* Gold — luxury accent */
   --green-dim: #b5954a;
   --red: #8B2020;
   --red-bright: #A52A2A;
   --gold: #C5A55A;             /* Gold accent */
-  --white: #ffffff;
-  --text-primary: #f0f0f2;     /* Near-white text */
-  --text-secondary: #c8c8cc;   /* Light grey text */
-  --text-muted: #9a9aa0;       /* Muted text */
-  --text-dim: #6e6e76;         /* Dim labels */
+  --white: #f0ece4;
+  --text-primary: #ede8df;     /* Warm cream text */
+  --text-secondary: #b8b0a0;   /* Warm grey text */
+  --text-muted: #8a8070;       /* Warm muted text */
+  --text-dim: #6a6050;         /* Warm dim labels */
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --max-w: 1400px;
-  --section-pad: 120px 0;
+  --max-w: 1200px;
+  --section-pad: 160px 0;
 }
 
 html { scroll-behavior: smooth; }
@@ -94,10 +94,22 @@ body {
   font-family: var(--font);
   background: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  font-size: 16px;
+}
+
+/* Subtle gallery wall grain texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
 a { color: inherit; text-decoration: none; transition: opacity 0.2s; }
@@ -2733,7 +2745,7 @@ section.hero {
   <!-- Logo — bottom left -->
   <div class="hero-logo">
     <div class="hero-logo-text">Time Curator<sup style="font-size:14px">®</sup></div>
-    <div class="hero-logo-sub">Collecting Since 1988</div>
+    <div class="hero-logo-sub">Collecting since 1988</div>
     <div style="font-family:var(--font);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(196,164,105,0.7);margin-top:4px;text-shadow:0 1px 8px rgba(0,0,0,0.7)">by Rolex Passion Report</div>
   </div>
 
@@ -2746,23 +2758,29 @@ section.hero {
 </section>
 
 <!-- ═══ INTRO ═══ -->
+<!-- ═══ PHILIPP'S VOICE — Right after the art ═══ -->
+<section class="quote-section" style="padding:100px 0 60px;">
+  <div class="container">
+    <p class="quote-text">“It’s not about owning watches.<br>It’s about understanding them.”</p>
+    <p class="quote-author">— Philipp Stahl</p>
+  </div>
+</section>
+
 <section class="intro" id="intro">
   <div class="container intro-flex">
     <div class="intro-left">
-      <p class="intro-label">YOUR COLLECTOR'S OFFICE<br><span style="font-size:7px;letter-spacing:2px;opacity:0.6">by ROLEX PASSION REPORT</span></p>
+      <p class="intro-label" style="letter-spacing:0.15em;">Maastricht, Netherlands</p>
       <h2 class="intro-heading">I find the watches<br>that matter most.</h2>
-      <p class="intro-body">Since 1988, I have been advising serious collectors on the world's rarest vintage Rolex and Patek Philippe timepieces. Authentication, valuation, and brokerage — with the discretion and expertise that only decades of passion can deliver.</p>
+      <p class="intro-body">I started collecting when I was 16. That was 1988. Since then, I’ve handled some of the rarest vintage Rolex and Patek Philippe watches in the world — authenticating, valuing, and finding them new homes. Not because it’s a business. Because I can’t stop.</p>
+      <p class="intro-body" style="margin-top:16px;color:var(--text-muted);font-size:14px;">Advisory · Authentication · Brokerage · Commission from 5%</p>
       <div class="intro-buttons">
-        <a href="#for-sale" class="btn-primary">Explore Grails</a>
+        <a href="#for-sale" class="btn-primary">Explore the Collection</a>
         <a href="https://instagram.com/time.curators" target="_blank" class="btn-secondary">@TIME.CURATORS</a>
       </div>
     </div>
     <div class="intro-right">
-      <div class="intro-stats">
-        <div class="intro-stat"><span class="stat-number">37+</span><span class="stat-label">Years of Expertise</span></div>
-        <div class="intro-stat"><span class="stat-number">500+</span><span class="stat-label">Grails Sourced</span></div>
-        <div class="intro-stat"><span class="stat-number">40+</span><span class="stat-label">Countries Served</span></div>
-      </div>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/ndmeafVhBJOHoHzx.jpeg" alt="Philipp Stahl" style="width:100%;max-width:380px;border-radius:2px;opacity:0.9;" />
+      <p style="margin-top:16px;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);">Collecting since 1988</p>
     </div>
   </div>
 </section>
@@ -2771,8 +2789,8 @@ section.hero {
   <div class="container">
     <div class="newsletter-inner">
       <div class="newsletter-text">
-        <h3>The Collector's Brief</h3>
-        <p>New arrivals, market insights, and stories from the world of vintage Rolex &amp; Patek Philippe. No spam. Ever.</p>
+        <h3>The Collector’s Brief</h3>
+        <p>New arrivals, market insights, and stories from the world of vintage Rolex &amp; Patek Philippe. No spam. Just watches.</p>
       </div>
       <form class="newsletter-form" id="newsletterForm" onsubmit="return handleNewsletter(event)">
         <input type="email" placeholder="Your email address" required />
@@ -2835,68 +2853,18 @@ section.hero {
   <div class="container">
     <div class="hww-header">
       <div class="section-line"></div>
-      <p class="section-label">THE TIME CURATOR METHOD</p>
-      <h2 class="section-title">How We Sell<br>Your Watch</h2>
-      <p class="hww-intro">Every significant timepiece deserves a strategy, not just a listing. Here is how we position your watch to reach the right collector at the right price.</p>
+      <p class="section-label">Selling a watch</p>
+      <h2 class="section-title" style="text-transform:none;">How it works</h2>
     </div>
 
-    <div class="hww-timeline">
-      <div class="hww-step">
-        <div class="hww-step-marker">
-          <span class="hww-step-num">01</span>
-          <div class="hww-step-line"></div>
-        </div>
-        <div class="hww-step-content">
-          <div class="hww-step-duration">WEEK 1</div>
-          <h3 class="hww-step-title">Valuation &amp; Strategy</h3>
-          <p class="hww-step-desc">We study your watch in detail. Provenance, condition, market position. Using our RPR* database and 37 years of market knowledge, we calculate the right price — not an inflated promise, not a lowball. The real number.</p>
-        </div>
+    <div style="max-width:700px;margin:48px auto 0;">
+      <p style="font-size:17px;line-height:1.85;color:var(--text-secondary);margin-bottom:28px;">You tell me about your watch. I study it — provenance, condition, where it sits in the market. Then I give you an honest number. Not an inflated promise to win your business. The real number.</p>
+      <p style="font-size:17px;line-height:1.85;color:var(--text-secondary);margin-bottom:28px;">If you decide to sell, I present it privately to serious collectors first — people I’ve known for years, people who understand what they’re looking at. No public listings. No auction pressure. Just the right watch meeting the right person.</p>
+      <p style="font-size:17px;line-height:1.85;color:var(--text-secondary);margin-bottom:28px;">If needed, we go wider — 21 trusted dealers across 40+ countries, professional photography, the right story at the right time. Some watches need to be seen in the right publication first.</p>
+      <p style="font-size:17px;line-height:1.85;color:var(--text-secondary);margin-bottom:48px;">At the end, you know exactly what happened. Who was interested, who wasn’t, and why. Commission from 5%. No hidden fees. No surprises. Just honest business.</p>
+      <div style="text-align:center;">
+        <a href="#contact" class="hww-cta">Start the Conversation</a>
       </div>
-
-      <div class="hww-step">
-        <div class="hww-step-marker">
-          <span class="hww-step-num">02</span>
-          <div class="hww-step-line"></div>
-        </div>
-        <div class="hww-step-content">
-          <div class="hww-step-duration">WEEKS 2 — 3</div>
-          <h3 class="hww-step-title">Private Placement</h3>
-          <p class="hww-step-desc">Your watch is presented privately to our inner circle — serious collectors worldwide who trust our curation. No public listings. No auction pressure. Discreet, personal, and positioned with the care it deserves. This is where the best deals happen.</p>
-        </div>
-      </div>
-
-      <div class="hww-step">
-        <div class="hww-step-marker">
-          <span class="hww-step-num">03</span>
-          <div class="hww-step-line"></div>
-        </div>
-        <div class="hww-step-content">
-          <div class="hww-step-duration">WEEKS 3 — 4</div>
-          <h3 class="hww-step-title">Network &amp; Online</h3>
-          <p class="hww-step-desc">If needed, we expand to our trusted dealer network — 21 dealers across 40+ countries — and our online channels. Professional photography, compelling storytelling, strategic timing. Some collectors need time. Some watches need to be seen in the right publication first.</p>
-        </div>
-      </div>
-
-      <div class="hww-step">
-        <div class="hww-step-marker">
-          <span class="hww-step-num">04</span>
-          <div class="hww-step-line"></div>
-        </div>
-        <div class="hww-step-content">
-          <div class="hww-step-duration">RESULT</div>
-          <h3 class="hww-step-title">Transparent Outcome</h3>
-          <p class="hww-step-desc">You know exactly what happened, who was interested, and why. We share the result openly. Commission from 5%. No hidden fees. No surprises. Just honest business built on decades of trust.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="hww-bottom">
-      <div class="hww-stat-row">
-        <div class="hww-stat"><span class="hww-stat-num">4</span><span class="hww-stat-unit">weeks</span><span class="hww-stat-label">Average placement cycle</span></div>
-        <div class="hww-stat"><span class="hww-stat-num">5</span><span class="hww-stat-unit">%</span><span class="hww-stat-label">Commission — transparent</span></div>
-        <div class="hww-stat"><span class="hww-stat-num">21</span><span class="hww-stat-unit">dealers</span><span class="hww-stat-label">Trusted global network</span></div>
-      </div>
-      <a href="#contact" class="hww-cta">Start the Conversation</a>
     </div>
   </div>
 </section>
@@ -2909,9 +2877,9 @@ section.hero {
 <!-- ═══ RPM* TRUSTED DEALERS ═══ -->
 <section class="rpm-dealers" id="rpm">
   <div class="container">
-    <p class="section-label">RPM* TRUSTED DEALERS</p>
-    <h2 class="section-title">The Rolex Patek Market</h2>
-    <p class="section-subtitle">Currently offered by vetted dealers on The Rolex Patek Market. Every watch verified. Every dealer trusted.</p>
+    <p class="section-label">RPM* Trusted dealers</p>
+    <h2 class="section-title" style="text-transform:none;">The Rolex Patek Market</h2>
+    <p class="section-subtitle">Watches offered by dealers I personally trust. Every watch verified. Every dealer vetted. This is where serious collectors shop.</p>
     <div class="rpm-grid">
       <a href="https://rolexpassionmarket.com" target="_blank" class="rpm-card">
         <img class="rpm-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/eeOnQzcRuJDUJaBQ.jpg" alt="Rolex Datejust 1601" />
@@ -3005,9 +2973,9 @@ section.hero {
 <!-- ═══ FOR SALE ═══ -->
 <section class="for-sale" id="for-sale">
   <div class="container">
-    <p class="section-label">FOR SALE</p>
-    <h2 class="section-title">What We Source</h2>
-    <p class="section-subtitle">Examples of what we find for our clients. Interested? We check the market that day and find the best available piece for you.</p>
+    <p class="section-label">For sale</p>
+    <h2 class="section-title" style="text-transform:none;">Currently available</h2>
+    <p class="section-subtitle">These are watches I can source right now. Interested in something you see? Or something you don’t? Just ask — I check the market that day.</p>
     <div class="fs-grid">
       <a href="mailto:info@timecurator.co?subject=Inquiry: Daytona JPS Cherry 6264" class="fs-card">
         <img class="fs-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/oHdjAFzGVOyqUAgf.jpeg" alt="Daytona JPS Cherry 6264" />
@@ -3082,10 +3050,10 @@ section.hero {
     <div class="featured-inner">
       <img class="featured-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/oHdjAFzGVOyqUAgf.jpeg" alt="Daytona JPS Cherry 6264" />
       <div>
-        <p class="featured-label">THE HOLY GRAIL</p>
+        <p class="featured-label">The holy grail</p>
         <h2 class="featured-title">Daytona JPS Cherry</h2>
-        <p class="featured-ref">6264</p>
-        <p class="featured-desc">Named after the iconic John Player Special livery — black and gold, the most coveted color combination in horology. This is where passion meets perfection.</p>
+        <p class="featured-ref">Ref. 6264</p>
+        <p class="featured-desc">Named after the iconic John Player Special livery — black and gold. The most coveted colour combination in horology. When I first held one, I understood why people lose sleep over watches.</p>
         <p class="featured-tag">Black &amp; Gold</p>
       </div>
     </div>
@@ -3095,23 +3063,20 @@ section.hero {
 <!-- ═══ SERVICES ═══ -->
 <section class="services" id="services">
   <div class="container">
-    <p class="section-label">SERVICES</p>
-    <h2 class="section-title">What We Do</h2>
+    <p class="section-label">What I do</p>
+    <h2 class="section-title" style="text-transform:none;">Three things, done well</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-number">01</div>
-        <h3>Source &amp; Authenticate</h3>
-        <p>We hunt watches through decades of relationships with collectors, dealers, and private families worldwide. Every piece personally inspected.</p>
+      <div class="service-card" style="border-top:1px solid var(--border);padding-top:32px;">
+        <h3 style="text-transform:none;">Find &amp; authenticate</h3>
+        <p>I hunt watches through decades of relationships with collectors, dealers, and private families worldwide. Every piece personally inspected. If something feels off, I walk away — and I’ll tell you why.</p>
       </div>
-      <div class="service-card">
-        <div class="service-number">02</div>
-        <h3>Advise &amp; Appraise</h3>
-        <p>Honest guidance without hidden agendas. We tell you what a watch is really worth. Independent valuations backed by 35+ years of market knowledge.</p>
+      <div class="service-card" style="border-top:1px solid var(--border);padding-top:32px;">
+        <h3 style="text-transform:none;">Advise &amp; appraise</h3>
+        <p>Honest guidance without hidden agendas. I tell you what a watch is really worth. Not what you want to hear — what you need to know. Independent valuations backed by almost four decades of market knowledge.</p>
       </div>
-      <div class="service-card">
-        <div class="service-number">03</div>
-        <h3>Broker &amp; Negotiate</h3>
-        <p>Discreet transactions between serious collectors. Fair deals for both sides. Commission from 5%. From first contact to final handshake.</p>
+      <div class="service-card" style="border-top:1px solid var(--border);padding-top:32px;">
+        <h3 style="text-transform:none;">Broker &amp; negotiate</h3>
+        <p>Discreet transactions between serious collectors. Fair deals for both sides. Commission from 5%. From first conversation to final handshake — I’m there.</p>
       </div>
     </div>
   </div>
@@ -3120,9 +3085,9 @@ section.hero {
 <!-- ═══ GALLERY ═══ -->
 <section class="gallery" id="gallery">
   <div class="container">
-    <p class="section-label">GALLERY</p>
-    <h2 class="section-title">The Collection</h2>
-    <p class="section-subtitle">Every watch tells a story. These are some of the pieces that have passed through my hands — each one carefully selected, each one unforgettable.</p>
+    <p class="section-label">Gallery</p>
+    <h2 class="section-title" style="text-transform:none;">Pieces that passed through my hands</h2>
+    <p class="section-subtitle">Every watch here has a story. Some I found, some found me. Each one carefully selected, each one unforgettable.</p>
 
     <div class="gallery-category">
       <h3 class="gallery-cat-title">COSMOGRAPH DAYTONA</h3>
@@ -3206,9 +3171,9 @@ section.hero {
 <!-- ═══ REPORT / RPR* ═══ -->
 <section class="report" id="report">
   <div class="container">
-    <p class="section-label">REPORT</p>
-    <h2 class="section-title">RPR* Reports</h2>
-    <p class="section-subtitle">Deep dives into the world of vintage Rolex. Written by collectors, for collectors. No fluff — just knowledge.</p>
+    <p class="section-label">Report</p>
+    <h2 class="section-title" style="text-transform:none;">Deep dives on RPR*</h2>
+    <p class="section-subtitle">Written by collectors, for collectors. No fluff — just knowledge. These are the reports that started it all.</p>
     <div class="report-grid">
       <a href="https://rolexpassionreport.com" target="_blank" class="report-card">
         <img class="report-card-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/OLscCvwEGAqbhYJK.jpg" alt="Buyer's Guide" />
@@ -3263,30 +3228,22 @@ section.hero {
   </div>
 </section>
 
-<!-- ═══ QUOTE ═══ -->
-<section class="quote-section">
-  <div class="container">
-    <p class="quote-text">“It’s not about owning watches.<br>It’s about understanding them.”</p>
-    <p class="quote-author">— PHILIPP STAHL</p>
-  </div>
-</section>
+<!-- Quote moved to after hero -->
 
 <!-- ═══ ABOUT ═══ -->
 <section class="about" id="about">
   <div class="container">
-    <p class="section-label">ABOUT</p>
-    <h2 class="section-title">TIME CURATOR®</h2>
-    <p class="section-subtitle" style="margin-bottom:0">Your Collector’s Office</p>
+    <p class="section-label">About</p>
+    <h2 class="section-title" style="text-transform:none;">The story behind the watches</h2>
     <div class="about-inner" style="margin-top:60px;">
       <img class="about-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/ndmeafVhBJOHoHzx.jpeg" alt="Philipp Stahl" />
       <div>
-        <p class="about-founder">Philipp Stahl — Founder</p>
-        <p>Collecting watches is more than just owning something.</p>
-        <p>It’s about having a passion, being dedicated, knowing your stuff, being patient and, most importantly, creating a legacy.</p>
-        <p>Every significant timepiece has a collector who has looked for it, studied it, waited for the right moment, negotiated and truly cared about its history. When you trust us to guide a watch to its next owner, it’s not just a deal; it’s an honour.</p>
-        <p>Time Curator® was made to take that responsibility seriously.</p>
-        <p>We see each watch as part of a collector’s personal story. We carefully analyse, curate and position every timepiece with the same passion and dedication with which it was collected. Our job is to protect its cultural value, make its story stronger and ensure it goes to the right people all over the world.</p>
-        <p class="about-tagline">Every placement starts privately.<br>Discreetly. Personally. Thoughtfully positioned.</p>
+        <p class="about-founder">Philipp Stahl</p>
+        <p>I bought my first serious watch when I was 16. I didn’t know it would become my life — but here we are, almost four decades later, and I still get the same feeling when I hold a great piece.</p>
+        <p>Collecting is more than owning something. It’s about having a passion, being dedicated, knowing your stuff, being patient and, most importantly, creating a legacy.</p>
+        <p>Every significant timepiece has a collector who looked for it, studied it, waited for the right moment, and truly cared about its history. When you trust me to guide a watch to its next owner, it’s not just a deal — it’s an honour.</p>
+        <p>I see each watch as part of a collector’s personal story. I carefully analyse, curate and position every timepiece with the same passion and dedication with which it was collected.</p>
+        <p class="about-tagline">Come as you are. Wear your jeans. Just bring your passion.</p>
         <div style="margin-top:24px;"><a href="mailto:info@timecurator.co" class="btn-secondary">info@timecurator.co</a></div>
       </div>
     </div>
@@ -3296,8 +3253,8 @@ section.hero {
 <!-- ═══ OUR WORLD / ECOSYSTEM ═══ -->
 <section class="our-world" id="rpr">
   <div class="container">
-    <p class="section-label">OUR WORLD</p>
-    <h2 class="section-title">Everything Under One Roof</h2>
+    <p class="section-label">Our world</p>
+    <h2 class="section-title" style="text-transform:none;">Everything under one roof</h2>
     <p class="section-subtitle">What started as a passion project became an ecosystem. Editorial, marketplace, advisory — all built over decades, all connected by the same obsession.</p>
     <div class="ecosystem-grid">
       <a href="https://rolexpassionreport.com" target="_blank" class="eco-card">
@@ -3343,9 +3300,9 @@ section.hero {
 <!-- ═══ ROLEX PASSION MEETINGS ═══ -->
 <section class="meetings" id="meetings">
   <div class="container">
-    <p class="section-label">ROLEX PASSION MEETINGS</p>
-    <h2 class="section-title">Where Collectors Meet</h2>
-    <p class="section-subtitle">The best deals happen over a glass of wine. Sharing stories, comparing pieces, building friendships that last a lifetime.</p>
+    <p class="section-label">Rolex Passion Meetings</p>
+    <h2 class="section-title" style="text-transform:none;">Where collectors meet</h2>
+    <p class="section-subtitle">The best deals happen over a glass of wine. Sharing stories, comparing pieces, building friendships that last a lifetime. No dress code — just passion.</p>
     <div class="meetings-grid">
       <a href="https://rolexpassionreport.com" target="_blank" class="meeting-card">
         <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/LDmXoTIySOtNkXmA.jpeg" alt="Maastricht" />
@@ -3378,61 +3335,12 @@ section.hero {
 
 <!-- ═══ SELL YOUR WATCH ═══ -->
 <section class="sell-section" id="sell">
-  <div class="container">
-    <p class="section-label">SELL WITH US</p>
-    <h2 class="section-title">Sell Your Watch</h2>
-    <p class="section-subtitle">Looking to sell a significant timepiece? We position your watch to the right collector, at the right price, with discretion.</p>
-    <div class="sell-inner" style="margin-top:60px;">
-      <div class="sell-info">
-        <div class="sell-steps">
-          <div class="sell-step">
-            <div class="sell-step-num">1</div>
-            <div class="sell-step-text">
-              <h4>Tell Us About Your Watch</h4>
-              <p>Share the basics: brand, model, year, condition. Photos help.</p>
-            </div>
-          </div>
-          <div class="sell-step">
-            <div class="sell-step-num">2</div>
-            <div class="sell-step-text">
-              <h4>We Evaluate &amp; Advise</h4>
-              <p>Honest market valuation based on 37 years of experience. No obligations.</p>
-            </div>
-          </div>
-          <div class="sell-step">
-            <div class="sell-step-num">3</div>
-            <div class="sell-step-text">
-              <h4>Discreet Placement</h4>
-              <p>Your watch reaches the right collectors through our global network. Commission from 5%.</p>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:32px;">
-          <button class="btn-primary" onclick="openSellModal()" style="cursor:pointer;border:none;font-family:var(--font);">START A CONVERSATION</button>
-        </div>
-      </div>
-      <div>
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:32px;">
-          <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">WHY SELL WITH US</p>
-          <div style="margin-bottom:20px;">
-            <p style="font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Global Network</p>
-            <p style="font-size:13px;color:var(--text-dim);">21 trusted dealers and thousands of serious collectors worldwide.</p>
-          </div>
-          <div style="margin-bottom:20px;">
-            <p style="font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Fair Pricing</p>
-            <p style="font-size:13px;color:var(--text-dim);">We know the real market value. No inflated promises, no lowball offers.</p>
-          </div>
-          <div style="margin-bottom:20px;">
-            <p style="font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Complete Discretion</p>
-            <p style="font-size:13px;color:var(--text-dim);">Private placements. Your identity stays protected throughout.</p>
-          </div>
-          <div>
-            <p style="font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">37 Years Experience</p>
-            <p style="font-size:13px;color:var(--text-dim);">Since 1988. We have seen every market cycle and know what works.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container" style="text-align:center;max-width:700px;">
+    <p class="section-label">Sell your watch</p>
+    <h2 class="section-title" style="text-transform:none;">Ready to let go of a piece?</h2>
+    <p style="font-size:17px;line-height:1.85;color:var(--text-secondary);margin-bottom:16px;">Tell me about your watch — brand, model, year, condition. Photos help. I’ll give you an honest valuation within 48 hours. No obligations, no pressure. Just a conversation between collectors.</p>
+    <p style="font-size:14px;color:var(--text-dim);margin-bottom:40px;">Commission from 5% · 21 trusted dealers · 40+ countries · Complete discretion</p>
+    <button class="btn-primary" onclick="openSellModal()" style="cursor:pointer;border:none;font-family:var(--font);">Start a Conversation</button>
   </div>
 </section>
 
@@ -3440,13 +3348,13 @@ section.hero {
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner">
-      <p class="section-label">POWERED BY PHILIPP STAHL</p>
-      <h2 class="section-title">Let’s Talk Watches</h2>
-      <p>Looking for something special? Want to sell a piece from your collection? Or just need an honest opinion? We’re always happy to talk.</p>
+      <p class="section-label">Contact</p>
+      <h2 class="section-title" style="text-transform:none;">Let’s talk watches</h2>
+      <p>Looking for something special? Want to sell a piece? Or just need an honest opinion? I’m always happy to talk. No question is too small, no watch is too humble.</p>
       <div class="contact-buttons">
-        <button class="btn-primary" onclick="openInquiry('')" style="cursor:pointer;border:none;font-family:var(--font);">SEND AN INQUIRY</button>
-        <a href="https://ig.me/m/time.curators" target="_blank" class="btn-primary">MESSAGE ON INSTAGRAM</a>
-        <a href="mailto:info@timecurator.co" class="btn-secondary">INFO@TIMECURATOR.CO</a>
+        <button class="btn-primary" onclick="openInquiry('')" style="cursor:pointer;border:none;font-family:var(--font);">Send an Inquiry</button>
+        <a href="https://ig.me/m/time.curators" target="_blank" class="btn-primary">Message on Instagram</a>
+        <a href="mailto:info@timecurator.co" class="btn-secondary">info@timecurator.co</a>
       </div>
     </div>
   </div>
@@ -3455,8 +3363,8 @@ section.hero {
 <!-- ═══ FOOTER ═══ -->
 <section class="legends" id="legends">
   <div class="container">
-    <p class="section-label">CONNECTED TO LEGENDS</p>
-    <h2 class="section-title">Icons We've Met</h2>
+    <p class="section-label">Connected to legends</p>
+    <h2 class="section-title" style="text-transform:none;">People I’ve been lucky to meet</h2>
     <div class="legends-grid">
       <div class="legend-card">
         <img class="legend-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663357556260/MoaYcNXxubGxBiji.jpeg" alt="Sir Jackie Stewart" />
@@ -3493,7 +3401,7 @@ section.hero {
       <div class="footer-brand">
         <h4>TIME CURATOR®</h4>
         <small>YOUR COLLECTOR'S OFFICE<br><span style="font-size:7px;letter-spacing:2px;opacity:0.6">by ROLEX PASSION REPORT</span></small>
-        <p>Connecting collectors of vintage Rolex and Patek Philippe since 1988. Advisory, brokerage, and a global community built on trust and shared passion.</p>
+        <p>Connecting collectors of vintage Rolex and Patek Philippe since 1988. Come as you are.</p>
         <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
           <a href="mailto:info@timecurator.co" style="font-size:12px;color:#C5A55A;">info@timecurator.co</a>
           <a href="https://ig.me/m/time.curators" target="_blank" style="font-size:12px;color:#888;">DIRECT MESSAGE →</a>
@@ -3612,9 +3520,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (nav) {
     window.addEventListener('scroll', function() {
       if (window.scrollY > 100) {
-        nav.style.background = 'rgba(26,26,31,0.98)';
+        nav.style.background = 'rgba(15,14,12,0.98)';
       } else {
-        nav.style.background = 'rgba(26,26,31,0.96)';
+        nav.style.background = 'rgba(15,14,12,0.96)';
       }
     });
   }
